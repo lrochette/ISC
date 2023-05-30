@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: default
   labels:
-    codefresh.io/entity: 'git-source'
+    codefresh.io/entity: git-source
     codefresh.io/internal: 'false'
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lrochette/csdp_git-source.git
-    path: .
+    path: ./resources
     targetRevision: main
     directory:
       include: '{*.yaml,**/*.yaml}'
