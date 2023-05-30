@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lrochette/csdp_git-source.git
-    path: ./resources
+    path: ./resources_csdp
     targetRevision: main
     directory:
       include: '{*.yaml,**/*.yaml}'
