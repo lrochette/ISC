@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: 0.1.30
+appVersion: 1.0.0
 description: Codefresh gitops runtime umbrella chart
 name: codefresh-gitops-runtime
 version: 0.2.13-alpha.1
