@@ -11,8 +11,8 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lrochette/csdp_applications.git
-    path: apps/dev
-    targetRevision: HEAD
+    path: app/dev
+    targetRevision: main
     directory:
       include: '*'
       exclude: ''
