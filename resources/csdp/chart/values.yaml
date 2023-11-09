@@ -11,8 +11,8 @@ gitops-runtime:
         className: nginx
         enabled: true
         hosts:
-          - afa70525fb43744719a6d4621315eba8-bc247cc748288ee2.elb.us-east-1.amazonaws.com
-          #- lrcsdp.support.cf-cd.com
+          #- afa70525fb43744719a6d4621315eba8-bc247cc748288ee2.elb.us-east-1.amazonaws.com
+          - lrcsdp.support.cf-cd.com
       name: csdp
   installer:
     skipValidation: true
