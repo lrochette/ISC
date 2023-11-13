@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  annotations:
-    workflows.argoproj.io/default-artifact-repository: default-oss-artifact-repository
-  name: artifact-repositories
-data:
-  default-oss-artifact-repository: |
-    archiveLogs: true #enable pipeline logging
