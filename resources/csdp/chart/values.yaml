@@ -17,7 +17,7 @@ gitops-runtime:
   installer:
     skipValidation: true
 
-  argo-worklfows:
+  argo-workflows:
     artifactRepository:
       archiveLogs: true
       s3:
