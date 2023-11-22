@@ -17,6 +17,10 @@ gitops-runtime:
     skipValidation: true
 
   argo-workflows:
+    controller:
+      workflowDefaults:
+        spec:
+          serviceAccountName: workflows-default
     useDefaultArtifactRepo: true
     useStaticCredentials: false    
     artifactRepository:
@@ -29,7 +33,16 @@ gitops-runtime:
         endpoint: s3.amazonaws.com #change as needed
         region: us-east-1 #change as needed
         roleARN: arn:aws:iam::835357571861:role/lr-s3-wks
-
+    server:
+      serviceAccount:
+        annotations:
+          eks.amazonaws.com/role-arn: "arn:aws:iam::835357571861:role/workflow-onpremlr"
+    workflow:
+      serviceAccount:
+        create: true
+        name: workflows-default
+        annotations:
+          eks.amazonaws.com/role-arn: "arn:aws:iam::835357571861:role/workflow-onpremlr"    
   argo-cd:
     configs:
       # ConfigMap for Config Management Plugins
