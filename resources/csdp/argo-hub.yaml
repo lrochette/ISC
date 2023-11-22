@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/codefresh-io/argo-hub.git
     path: .
-    targetRevision: HEAD
+    targetRevision: codefresh
     directory:
       include: 'workflows/**/*.yaml'
       exclude: '**/images/**/*'
