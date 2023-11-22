@@ -21,10 +21,12 @@ gitops-runtime:
     artifactRepository:
       archiveLogs: true
       s3:
+        accessKeySecret: {}
+        secretKeySecret: {}
+        insecure: false
         bucket: csdp-lr
         endpoint: s3.amazonaws.com #change as needed
         region: us-east-1 #change as needed
-        insecure: false
         roleARN: arn:aws:iam::835357571861:role/lr-s3-wks
 
   argo-cd:
