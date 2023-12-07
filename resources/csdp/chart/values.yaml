@@ -13,10 +13,10 @@ gitops-runtime:
         hosts:
           - lrcsdp.support.cf-cd.com
       name: csdp
-    app-proxy:
-      config:
-        logLevel: trace
-        graphqlPlayground: "true"
+    # app-proxy:
+    #   config:
+    #     logLevel: trace
+    #     graphqlPlayground: "true"
   installer:
     skipValidation: true
 
