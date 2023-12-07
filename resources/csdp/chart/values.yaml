@@ -13,6 +13,10 @@ gitops-runtime:
         hosts:
           - lrcsdp.support.cf-cd.com
       name: csdp
+    app-proxy:
+      config:
+        logLevel: trace
+        graphqlPlayground: "true"
   installer:
     skipValidation: true
 
@@ -22,7 +26,7 @@ gitops-runtime:
         spec:
           serviceAccountName: workflows-default
     useDefaultArtifactRepo: true
-    useStaticCredentials: false    
+    useStaticCredentials: false
     artifactRepository:
       archiveLogs: true
       s3:
@@ -42,7 +46,7 @@ gitops-runtime:
         create: true
         name: workflows-default
         annotations:
-          eks.amazonaws.com/role-arn: "arn:aws:iam::835357571861:role/workflow-onpremlr"    
+          eks.amazonaws.com/role-arn: "arn:aws:iam::835357571861:role/workflow-onpremlr"
   argo-cd:
     configs:
       # ConfigMap for Config Management Plugins
