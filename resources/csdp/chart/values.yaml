@@ -40,13 +40,13 @@ gitops-runtime:
     server:
       serviceAccount:
         annotations:
-          eks.amazonaws.com/role-arn: "arn:aws:iam::835357571861:role/workflow-onpremlr"
+          eks.amazonaws.com/role-arn: "arn:aws:iam::835357571861:role/workflow-lr1"
     workflow:
       serviceAccount:
         create: true
         name: workflows-default
         annotations:
-          eks.amazonaws.com/role-arn: "arn:aws:iam::835357571861:role/workflow-onpremlr"
+          eks.amazonaws.com/role-arn: "arn:aws:iam::835357571861:role/workflow-lr1"
   argo-cd:
     configs:
       # ConfigMap for Config Management Plugins
@@ -58,7 +58,7 @@ gitops-runtime:
 
         # -- Annotations to be added to argocd-cmp-cm configmap
         annotations:
-          eks.amazonaws.com/role-arn: 'arn:aws:iam::835357571861:role/eksctl-onpremlr-cluster-ServiceRole-1RD8IAI5PQGPC'
+          eks.amazonaws.com/role-arn: 'arn:aws:iam::835357571861:role/eksctl-lr1-cluster-ServiceRole-YRoHLZjmELAn'
 
         # -- Plugin yaml files to be added to argocd-cmp-cm
         plugins:
