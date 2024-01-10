@@ -18,7 +18,8 @@ gitops-runtime:
       logLevel: trace
       graphqlPlayground: "true"
     env:
-      - GRAPHQL_INTROSPECTION="true"
+      - name: GRAPHQL_INTROSPECTION
+        value: "true"
   installer:
     skipValidation: true
 
