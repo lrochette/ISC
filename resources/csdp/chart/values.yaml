@@ -16,7 +16,7 @@ gitops-runtime:
     app-proxy:
       config:
         logLevel: trace
-        graphqlPlayground: "true"
+        graphqlPlayground: true
   installer:
     skipValidation: true
 
