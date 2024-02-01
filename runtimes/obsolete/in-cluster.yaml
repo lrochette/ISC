@@ -1,8 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  creationTimestamp: null
   finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  - resources-finalizer.argocd.argoproj.io
   labels:
     codefresh.io/entity: internal-config
     codefresh.io/internal: "true"
@@ -14,7 +15,8 @@ spec:
   project: default
   source:
     directory:
-      include: '{all-runtimes-all-clusters/*.yaml,all-runtimes-all-clusters/**/*.yaml,runtimes/obsolete/*.yaml,runtimes/obsolete/**/*.yaml,control-planes/*.yaml,control-planes/**/*.yaml}'
+      include: '{control-planes/*.yaml,obsolete/default-git-source.yaml,all-runtimes-all-clusters/*.yaml,runtimes/obsolete/**/*.yaml,obsolete/marketplace-git-source.yaml,control-planes/**/*.yaml,obsolete/codefresh-config-reader.yaml,all-runtimes-all-clusters/**/*.yaml,runtimes/obsolete/*.yaml}'
+      jsonnet: {}
       recurse: true
     path: resources
     repoURL: https://github.com/lrochette/ISC.git
