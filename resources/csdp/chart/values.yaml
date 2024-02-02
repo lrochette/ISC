@@ -73,7 +73,7 @@ gitops-runtime:
     ## Repo Server
     repoServer:
       # -- Additional containers to be added to the repo server pod
-      ## Ref: https://argo-cd.readthedocs.io/en/stable/user-guide/config-management-plugins/
+      ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/config-management-plugins/
       ## Note: Supports use of custom Helm templates
       extraContainers:
         - name: argocd-vault-plugin
