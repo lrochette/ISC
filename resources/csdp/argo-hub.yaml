@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/codefresh-io/argo-hub.git
     path: .
-    targetRevision: lr-snow-gitops
+    targetRevision: main
     directory:
       include: 'workflows/**/*.yaml'
       exclude: '**/images/**/*'
