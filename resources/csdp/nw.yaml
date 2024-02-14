@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: nw
   labels:
-    codefresh.io/entity: 'git-source'
+    codefresh.io/entity: git-source
     codefresh.io/internal: 'false'
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lrochette/csdp_git-source.git
-    path: NW/resources
+    path: resources/NW
     targetRevision: main
     directory:
       include: '*'
