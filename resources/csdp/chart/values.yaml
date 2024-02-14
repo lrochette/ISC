@@ -13,13 +13,13 @@ gitops-runtime:
         hosts:
           - lrcsdp.support.cf-cd.com
       name: csdp
-  app-proxy:
-    config:
-      logLevel: trace
-      graphqlPlayground: "true"
-    env:
-      - name: GRAPHQL_INTROSPECTION
-        value: "true"
+  # app-proxy:
+  #   config:
+  #     logLevel: trace
+  #     graphqlPlayground: "true"
+  #   env:
+  #     - name: GRAPHQL_INTROSPECTION
+  #       value: "true"
   installer:
     skipValidation: true
 
