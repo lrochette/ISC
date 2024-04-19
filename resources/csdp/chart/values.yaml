@@ -50,6 +50,10 @@ gitops-runtime:
         annotations:
           eks.amazonaws.com/role-arn: "arn:aws:iam::835357571861:role/workflow-lr1"
   argo-cd:
+    notifications:
+      enabled: true
+      bots:
+        slack: {}
     configs:
       # ConfigMap for Config Management Plugins
       # Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/config-management-plugins/
