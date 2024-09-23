@@ -15,7 +15,7 @@ spec:
   source:
     directory:
       include: >-
-        {all-runtimes-all-clusters/**/*.yaml,all-runtimes-all-clusters/*.yaml,configurations/**/*.yaml,control-planes/**/*.yaml,control-planes/*.yaml,csdp/apps-dev.yaml,csdp/apps-prod.yaml,csdp/argo-hub.yaml,csdp/blog.yaml,csdp/csdp.yaml,csdp/default.yaml,runtimes/csdp/**/*.yaml,runtimes/csdp/*.yaml}
+        {all-runtimes-all-clusters/**/*.yaml,all-runtimes-all-clusters/*.yaml,configurations/**/*.yaml,control-planes/**/*.yaml,control-planes/*.yaml,csdp/argo-hub.yaml,csdp/csdp.yaml,csdp/default.yaml,runtimes/csdp/**/*.yaml,runtimes/csdp/*.yaml}
       recurse: true
     path: resources
     repoURL: https://github.com/lrochette/ISC.git
