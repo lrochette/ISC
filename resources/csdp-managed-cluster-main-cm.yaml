@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: csdp-managed-cluster-main-cm
-  labels:
-    app.kubernetes.io/managed-by: codefresh
-data: 
-  managed-by-runtime: csdp
