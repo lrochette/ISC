@@ -37,24 +37,24 @@ spec:
           arguments:
             parameters:
             - name: TOKEN
-              value: cf-api-key-aperture
+              value: cf-api-key
             - name: CF_RUNTIME
               value: demo
             - name: SN_INSTANCE
               value: 'https://dev286098.service-now.com'
-              # value: 'https://dev204449.service-now.com'
             - name: SN_AUTH
               value: "sn-auth"
             - name: LOG_LEVEL
               value: "debug"
-            - name: STD_CR_TEMPLATE
-              value: ""
+            # - name: STD_CR_TEMPLATE
+            #   value: ""
             - name: CR_DATA
               value: >-
                 {"short_description": "Product {{ workflow.parameters.PRODUCT_NAME }} deployment",
                  "description": "We are using  the {{ workflow.parameters.PROMOTION_FLOW_NAME }} flow. See {{ workflow.parameters.RELEASE_URL }} for details",
-                 "justification": "My app is awesome! Please deploy ASAP",
-                 "cmdb_ci":"tomcat", "assignment_group":"a715cd759f2002002920bde8132e7018"
+                 "justification": "My app is awesome. Please deploy ASAP",
+                 "cmdb_ci": "tomcat", 
+                 "assignment_group": "a715cd759f2002002920bde8132e7018"
                 }
 
         - name: wait
