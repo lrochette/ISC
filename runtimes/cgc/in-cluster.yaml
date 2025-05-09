@@ -15,7 +15,7 @@ spec:
   source:
     directory:
       include: >-
-        {all-runtimes-all-clusters/**/*.yaml,all-runtimes-all-clusters/*.yaml,cgc/cgc.yaml,control-planes/**/*.yaml,control-planes/*.yaml,runtimes/cgc/**/*.yaml,runtimes/cgc/*.yaml}
+        {all-runtimes-all-clusters/**/*.yaml,all-runtimes-all-clusters/*.yaml,cgc/cgc-apps.yaml,cgc/cgc.yaml,control-planes/**/*.yaml,control-planes/*.yaml,runtimes/cgc/**/*.yaml,runtimes/cgc/*.yaml}
       recurse: true
     path: resources
     repoURL: https://github.com/lrochette/ISC.git
