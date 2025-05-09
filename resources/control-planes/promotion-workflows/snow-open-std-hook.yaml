@@ -46,7 +46,7 @@ spec:
             - name: TOKEN
               value: cf-api-key-aperture
             - name: CF_RUNTIME
-              value: demo
+              value: csdp
             - name: SN_INSTANCE
               value: 'https://dev286098.service-now.com'
               # value: 'https://dev204449.service-now.com'

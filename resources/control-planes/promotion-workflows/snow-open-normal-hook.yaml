@@ -39,7 +39,7 @@ spec:
             - name: TOKEN
               value: cf-api-key
             - name: CF_RUNTIME
-              value: demo
+              value: csdp
             - name: SN_INSTANCE
               value: 'https://dev286098.service-now.com'
             - name: SN_AUTH
@@ -53,7 +53,7 @@ spec:
                 {"short_description": "Product {{ workflow.parameters.PRODUCT_NAME }} deployment",
                  "description": "We are using  the {{ workflow.parameters.PROMOTION_FLOW_NAME }} flow. See {{ workflow.parameters.RELEASE_URL }} for details",
                  "justification": "My app is awesome. Please deploy ASAP",
-                 "cmdb_ci": "tomcat", 
+                 "cmdb_ci": "tomcat",
                  "assignment_group": "a715cd759f2002002920bde8132e7018"
                 }
 
