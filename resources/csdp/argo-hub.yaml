@@ -19,7 +19,7 @@ spec:
       selfHeal: true
   sources:
   - repoURL: https://github.com/codefresh-io/argo-hub.git
-    path: ''
+    path: '.'
     targetRevision: codefresh
     directory:
       include: workflows/**/*.yaml
