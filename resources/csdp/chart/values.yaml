@@ -21,14 +21,34 @@ gitops-runtime:
     env:
       GRAPHQL_INTROSPECTION: "true"
 
-  garage-workflows-artifact-storage:
-    enabled: true
-    persistence:
-      # -- Volume that stores artifacts and logs for workflows
-      data:
-        # -- When empty value empty the default storage class for the cluster will be used
-        storageClass: ""
-        size: 2Gi
+  gitops-operator:
+    config:
+      promotionWrapperTemplate: promotion-wrapper-laurent
+    env:
+      PROMOTION_WRAPPER_TEMPLATE: promotion-wrapper-laurent
+  argo-workflows:
+    controller:
+      workflowDefaults:
+        spec:
+          archiveLogs: true
+          artifactRepositoryRef:
+            configMap: codefresh-workflows-log-store
+            key: codefresh-workflows-log-store
+    artifactRepositoryRef:
+      codefresh-workflows-log-store:
+        archiveLogs: true
+        codefresh-workflows-log-store:
+          s3:
+            bucket: 600edc0bdffeb2bc4981d15a
+            endpoint: gitops-workflow-logs.codefresh.io
+            insecure: false
+            keyFormat: 'csdp/{{workflow.name}}/{{pod.name}}'
+            accessKeySecret:
+              name: codefresh-token
+              key: token
+            secretKeySecret:
+              name: codefresh-token
+              key: token
   argo-cd:
     acrController:
       enabled: true
