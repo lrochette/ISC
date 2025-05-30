@@ -303,6 +303,11 @@ spec:
     script:
       name: submit
       image: quay.io/codefreshplugins/argo-hub-argo-workflows-argo-workflow-cli:0.0.4-main
+      tolerations: &tolerations
+      - key: test
+        operator: Equal
+        value: test
+        effect: NoSchedule
       env:
       - name: TEMPLATE_NAME
         value: "{{ inputs.parameters.TEMPLATE_NAME }}"
@@ -343,6 +348,7 @@ spec:
     script:
       name: main
       image: quay.io/codefresh/cf-promotion-utils:0.1.0
+      tolerations: *tolerations
       env:
       - name: APP_NAME_LABEL
         value: "{{ workflow.labels.codefresh\u002eio/app-name }}"
@@ -396,6 +402,7 @@ spec:
     script:
       name: curl
       image: quay.io/codefresh/curl-base:8.9.1
+      tolerations: *tolerations
       env:
       - name: URL
         value: "{{ inputs.parameters.URL }}"
@@ -506,6 +513,7 @@ spec:
         path: /tmp/action_result.json
     container:
       image: ghcr.io/jqlang/jq:1.7.1
+      tolerations: *tolerations
       command:
       - /jq
       args:
@@ -535,6 +543,7 @@ spec:
     script:
       name: refresh
       image: quay.io/codefreshplugins/argo-hub-workflows-argocd-versions-0.0.1-images-argocd-cli:main
+      tolerations: *tolerations
       env:
         - name: APP_NAME
           value: "{{ inputs.parameters.APP_NAME }}"
@@ -581,6 +590,7 @@ spec:
     script:
       name: app-get
       image: quay.io/codefreshplugins/argo-hub-workflows-argocd-versions-0.0.1-images-argocd-cli:main
+      tolerations: *tolerations
       env:
       - name: APP_NAME
         value: "{{ inputs.parameters.APP_NAME }}"
@@ -626,6 +636,7 @@ spec:
     script:
       name: app-get
       image: quay.io/codefreshplugins/argo-hub-workflows-argocd-versions-0.0.1-images-argocd-cli:main
+      tolerations: *tolerations
       env:
       - name: APP_NAME
         value: "{{ inputs.parameters.APP_NAME }}"
@@ -666,6 +677,7 @@ spec:
     script:
       name: sync
       image: quay.io/codefreshplugins/argo-hub-workflows-argocd-versions-0.0.1-images-argocd-cli:main
+      tolerations: *tolerations
       env:
       - name: APP_NAME
         value: "{{ inputs.parameters.APP_NAME }}"
@@ -706,6 +718,7 @@ spec:
     script:
       name: wait
       image: quay.io/codefreshplugins/argo-hub-workflows-argocd-versions-0.0.1-images-argocd-cli:main
+      tolerations: *tolerations
       env:
       - name: APP_NAME
         value: "{{ inputs.parameters.APP_NAME }}"
@@ -731,6 +744,7 @@ spec:
   - name: fail-tmpl
     container:
       image: alpine:3.20
+      tolerations: *tolerations
       command:
       - sh
       args:
