@@ -6,5 +6,10 @@ spec:
   promotionTemplate:
     versionSource:
       file: values.yaml
-      jsonPath: $.*.*.version3
+      jsonPath: $.sub2.sub3.version3
+    promotion:
+      values.yaml:
+        jsonPaths:
+          - $.*.*.tag
+          - $.sub2.sub3.version3
   concurrency: queue
