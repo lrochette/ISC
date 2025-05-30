@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
   name: promotion-wrapper-laurent
-  generateName: lr-promotion-wrapper-
+  # generateName: lr-promotion-wrapper-
 spec:
   serviceAccountName: promotion-template
   hooks:
