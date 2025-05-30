@@ -1,8 +1,8 @@
 # https://whimsical.com/promotion-wrapper-AKFyE6voPmWEewzNgSzagQ
 apiVersion: argoproj.io/v1alpha1
-kind: Workflow
+kind: WorkflowTemplate
 metadata:
-  generateName: promotion-wrapper-laurent
+  name: promotion-wrapper-laurent
 spec:
   serviceAccountName: promotion-template
   hooks:

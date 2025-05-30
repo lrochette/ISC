@@ -24,8 +24,8 @@ gitops-runtime:
   gitops-operator:
     config:
       promotionWrapperTemplate: promotion-wrapper-laurent
-    env:
-      PROMOTION_WRAPPER_TEMPLATE: promotion-wrapper-laurent
+    # env:
+    #   PROMOTION_WRAPPER_TEMPLATE: promotion-wrapper-laurent
   argo-workflows:
     controller:
       workflowDefaults:
