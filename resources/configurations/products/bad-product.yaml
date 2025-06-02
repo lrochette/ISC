@@ -1,0 +1,11 @@
+apiVersion: codefresh.io/v1beta2
+kind: Product
+metadata:
+  name: bad
+spec:
+  promotionTemplate:
+    promotion:
+      values.yaml:
+        jsonPath:
+          - $.*.*.tag
+  concurrency: queue
