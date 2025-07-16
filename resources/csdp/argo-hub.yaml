@@ -20,7 +20,7 @@ spec:
   sources:
   - repoURL: https://github.com/codefresh-io/argo-hub.git
     path: '.'
-    targetRevision: codefresh
+    targetRevision: lr-jira-issue-570 # codefresh
     directory:
       include: workflows/**/*.yaml
       exclude: '**/images/**/*'
