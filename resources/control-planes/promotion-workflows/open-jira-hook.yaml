@@ -9,7 +9,7 @@ metadata:
   name: open-jira-hook
   annotations:
     codefresh.io/workflow-origin: promotion
-    version: 0.0.2
+    version: 0.0.3
     description: Create a new Jira
 spec:
   serviceAccountName: cf-default-promotion-workflows-sa
@@ -28,7 +28,7 @@ spec:
                 value: jira-token
               - name: JIRA_API_KEY_SECRET_KEY
                 value: 'token'
-              - name: JIRA_ISSUE_URL
+              - name: JIRA_BASE_URL
                 value: https://codefresh-io.atlassian.net
               - name: JIRA_USERNAME
                 value: laurent.rochette@codefresh.io
