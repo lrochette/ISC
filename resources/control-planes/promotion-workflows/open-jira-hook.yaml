@@ -9,7 +9,7 @@ metadata:
   name: open-jira-hook
   annotations:
     codefresh.io/workflow-origin: promotion
-    version: 0.0.1
+    version: 0.0.2
     description: Create a new Jira
 spec:
   serviceAccountName: cf-default-promotion-workflows-sa
@@ -19,91 +19,25 @@ spec:
       dag:
         tasks:
           - name: create-issue
-            template: create-issue
-          - name: set-promotion-context
             templateRef:
-              name: set-promotion-context
-              template: generate-context
-            depends: "create-issue.Succeeded"
+              name: argo-hub.jira.0.0.1
+              template: create-issue
             arguments:
               parameters:
-                - name: context-params
-                  value: |
-                    {
-                      "JIRA_ISSUE_SOURCE_FIELD": "{{tasks.create-issue.outputs.parameters.JIRA_ISSUE_SOURCE_FIELD}}",
-                      "JIRA_ISSUE_URL": "https://codefresh-io.atlassian.net"
-                    }
+              - name: JIRA_API_KEY
+                value: jira-token
+              - name: JIRA_API_KEY_SECRET_KEY
+                default: 'token'
+              - name: JIRA_ISSUE_URL
+                value: https://codefresh-io.atlassian.net
+              - name: JIRA_USERNAME
+                value: laurent.rochette@codefresh.io
 
-    - name: create-issue
-      serviceAccountName: cf-default-promotion-workflows-sa
-      retryStrategy:
-        limit: "3"
-        retryPolicy: "Always"
-        backoff:
-          duration: "5s"
-      inputs:
-        parameters:
-          - name: SLACK_TOKEN
-            valueFrom:
-              secretKeyRef:
-                name: slack-token
-                key: token
-          - name: JIRA_ISSUE_URL
-            value: https://codefresh-io.atlassian.net
-          - name: JIRA_USERNAME
-            value: laurent.rochette@codefresh.io
-          - name: JIRA_API_KEY_SECRET_KEY
-            default: 'token'
-          - name: JIRA_USERNAME_SECRET_KEY
-            default: 'email'
-          - name: ISSUE_PROJECT
-            default: 'AP'
-          - name: ISSUE_SUMMARY
-            default: 'Trio deployment'
-          - name: ISSUE_DESCRIPTION
-            default: 'fix migration and current db state'
-          - name: ISSUE_COMPONENTS
-            default: ''
-          - name: ISSUE_CUSTOMFIELDS
-            default: ''
-          - name: ISSUE_TYPE
-            default: 'Task'
-      outputs:
-        parameters:
-          - name: JIRA_ISSUE_SOURCE_FIELD
-            valueFrom:
-              path: /tmp/JIRA_ISSUE_SOURCE_FIELD
-      container:
-        name: main
-        imagePullPolicy: Always
-        image: quay.io/codefreshplugins/argo-hub-workflows-jira-versions-0.0.1-images-jira-manager:main
-        command:
-          - python
-          - /jira/jira_issue_manager.py
-        env:
-          - name: JIRA_BASE_URL
-            value: ''
-          - name: JIRA_USERNAME
-            value: ''
-          - name: JIRA_API_KEY???
-            value: ''
-          - name: ACTION
-            value: 'issue_create'
-          - name: ISSUE_PROJECT
-            value: ''
-          - name: ISSUE_SUMMARY
-            value: ''
-          - name: ISSUE_DESCRIPTION
-            value: ''
-          - name: ISSUE_COMPONENTS
-            value: ''
-          - name: ISSUE_CUSTOMFIELDS
-            value: ''
-          - name: ISSUE_TYPE
-            value: ''
-        volumeMounts:
-          - name: promotion-context
-            mountPath: /tmp
-      volumes:
-        - name: promotion-context
-          emptyDir: {}
+              - name: ISSUE_PROJECT
+                default: 'AP'
+              - name: ISSUE_SUMMARY
+                default: 'Trio deployment'
+              - name: ISSUE_DESCRIPTION
+                default: 'fix migration and current db state'
+              - name: ISSUE_TYPE
+                default: 'Task'
