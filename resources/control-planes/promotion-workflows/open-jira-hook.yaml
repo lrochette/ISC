@@ -27,17 +27,17 @@ spec:
               - name: JIRA_API_KEY
                 value: jira-token
               - name: JIRA_API_KEY_SECRET_KEY
-                default: 'token'
+                value: 'token'
               - name: JIRA_ISSUE_URL
                 value: https://codefresh-io.atlassian.net
               - name: JIRA_USERNAME
                 value: laurent.rochette@codefresh.io
 
               - name: ISSUE_PROJECT
-                default: 'AP'
+                value: 'AP'
               - name: ISSUE_SUMMARY
-                default: 'Trio deployment'
+                value: 'Trio deployment'
               - name: ISSUE_DESCRIPTION
-                default: 'fix migration and current db state'
+                value: 'fix migration and current db state'
               - name: ISSUE_TYPE
-                default: 'Task'
+                value: 'Task'
