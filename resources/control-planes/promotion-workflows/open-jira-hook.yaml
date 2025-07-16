@@ -27,11 +27,13 @@ spec:
               - name: JIRA_API_KEY
                 value: jira-token
               - name: JIRA_API_KEY_SECRET_KEY
-                value: 'token'
+                value: token
               - name: JIRA_BASE_URL
-                value: https://codefresh-io.atlassian.net
+                value: 'https://codefresh-io.atlassian.net'
               - name: JIRA_USERNAME
-                value: laurent.rochette@codefresh.io
+                value: jira-token
+              - name: JIRA_USERNAME_SECRET_KEY
+                value: email
 
               - name: ISSUE_PROJECT
                 value: 'AP'
