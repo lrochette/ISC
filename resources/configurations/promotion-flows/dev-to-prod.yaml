@@ -12,5 +12,5 @@ spec:
       dependsOn:
         - dev
       policy:
-        action: pr
+        action: commit
         preAction: open-jira-hook
