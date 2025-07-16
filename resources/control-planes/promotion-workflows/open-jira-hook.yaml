@@ -20,7 +20,7 @@ spec:
         tasks:
           - name: create-issue
             templateRef:
-              name: argo-hub.jira.0.0.1
+              name: argo-hub.jira.0.0.2
               template: create-issue
             arguments:
               parameters:
