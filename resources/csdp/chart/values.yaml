@@ -21,9 +21,9 @@ gitops-runtime:
     env:
       GRAPHQL_INTROSPECTION: "true"
 
-  gitops-operator:
-    env:
-      PROMOTION_WRAPPER_TEMPLATE: promotion-wrapper-haleon
+  # gitops-operator:
+  #   env:
+  #     PROMOTION_WRAPPER_TEMPLATE: promotion-wrapper-haleon
   argo-workflows:
     controller:
       workflowDefaults:

@@ -34,7 +34,6 @@ spec:
                 value: jira-token
               - name: JIRA_USERNAME_SECRET_KEY
                 value: email
-
               - name: ISSUE_PROJECT
                 value: 'AP'
               - name: ISSUE_SUMMARY
