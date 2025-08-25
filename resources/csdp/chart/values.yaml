@@ -48,6 +48,36 @@ gitops-runtime:
               name: codefresh-token
               key: token
   argo-cd:
+    configs:
+      cm:
+        application.resourceTrackingMethod: "annotation+label"
+      params:
+        applicationsetcontroller.enable.github.api.metrics: "true"
+    server:
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+      replicas: 2
+      resources:
+        requests:
+          cpu: '0.3'
+          memory: 400Mi
+    applicationSet:
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+    controller:
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+    repoServer:
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
     acrController:
       enabled: true
     eventReporter:
@@ -55,13 +85,3 @@ gitops-runtime:
         - name: USE_GRPC
           value: 'false'
       replicas: 4
-    server:
-      replicas: 2
-      resources:
-        requests:
-          cpu: '0.3'
-          memory: 400Mi
-    notifications:
-      enabled: true
-      bots:
-        slack: {}
