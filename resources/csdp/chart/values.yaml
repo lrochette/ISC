@@ -58,6 +58,9 @@ gitops-runtime:
         enabled: true
         serviceMonitor:
           enabled: true
+          namespace: "monitoring"
+          additionalLabels:
+            release: kube-prometheus-stack
       replicas: 2
       resources:
         requests:
@@ -68,16 +71,49 @@ gitops-runtime:
         enabled: true
         serviceMonitor:
           enabled: true
+          namespace: "monitoring"
+          additionalLabels:
+            release: kube-prometheus-stack
+    commitServer:
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+          namespace: "monitoring"
+          additionalLabels:
+            release: kube-prometheus-stack
+    notifications:
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+          namespace: "monitoring"
+          additionalLabels:
+            release: kube-prometheus-stack
+    redis:
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+          namespace: "monitoring"
+          additionalLabels:
+            release: kube-prometheus-stack
     controller:
       metrics:
         enabled: true
         serviceMonitor:
           enabled: true
+          namespace: "monitoring"
+          additionalLabels:
+            release: kube-prometheus-stack
     repoServer:
       metrics:
         enabled: true
         serviceMonitor:
           enabled: true
+          namespace: "monitoring"
+          additionalLabels:
+            release: kube-prometheus-stack
     acrController:
       enabled: true
     eventReporter:
