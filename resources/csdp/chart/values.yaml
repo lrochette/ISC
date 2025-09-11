@@ -54,7 +54,7 @@ gitops-runtime:
       params:
         applicationsetcontroller.enable.github.api.metrics: "true"
     server:
-      metrics:
+      metrics: &metric_block
         enabled: true
         serviceMonitor:
           enabled: true
@@ -67,53 +67,17 @@ gitops-runtime:
           cpu: '0.3'
           memory: 400Mi
     applicationSet:
-      metrics:
-        enabled: true
-        serviceMonitor:
-          enabled: true
-          namespace: "monitoring"
-          additionalLabels:
-            release: kube-prometheus-stack
+      metrics: *metric_block
     commitServer:
-      metrics:
-        enabled: true
-        serviceMonitor:
-          enabled: true
-          namespace: "monitoring"
-          additionalLabels:
-            release: kube-prometheus-stack
+      metrics: *metric_block
     notifications:
-      metrics:
-        enabled: true
-        serviceMonitor:
-          enabled: true
-          namespace: "monitoring"
-          additionalLabels:
-            release: kube-prometheus-stack
+      metrics: *metric_block
     redis:
-      metrics:
-        enabled: true
-        serviceMonitor:
-          enabled: true
-          namespace: "monitoring"
-          additionalLabels:
-            release: kube-prometheus-stack
+      metrics: *metric_block
     controller:
-      metrics:
-        enabled: true
-        serviceMonitor:
-          enabled: true
-          namespace: "monitoring"
-          additionalLabels:
-            release: kube-prometheus-stack
+      metrics: *metric_block
     repoServer:
-      metrics:
-        enabled: true
-        serviceMonitor:
-          enabled: true
-          namespace: "monitoring"
-          additionalLabels:
-            release: kube-prometheus-stack
+      metrics: *metric_block
     acrController:
       enabled: true
     eventReporter:
